@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Саған арналған шақырту ❤️</title>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      user-select: none;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ffd1dc, #fbc2eb);
+      font-family: 'Nunito', 'Comfortaa', cursive, sans-serif;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Артқы фондағы ұшатын жүректер */
+    .heart-bg {
+      position: absolute;
+      color: rgba(255, 77, 109, 0.4);
+      font-size: 20px;
+      animation: floatUp 6s linear infinite;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(100vh) scale(0.5);
+        opacity: 0;
+      }
+      20% { opacity: 0.8; }
+      100% {
+        transform: translateY(-10vh) scale(1.2);
+        opacity: 0;
+      }
+    }
+
+    /* Басты карта */
+    .card {
+      position: relative;
+      z-index: 10;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      padding: 35px 25px;
+      border-radius: 35px;
+      box-shadow: 0 15px 35px rgba(230, 80, 115, 0.2);
+      width: 90%;
+      max-width: 380px;
+      text-align: center;
+      border: 4px dashed #ff9a9e;
+      transition: all 0.4s ease;
+    }
+
+    .step {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .step.active {
+      display: flex;
+      animation: popIn 0.5s ease-out forwards;
+    }
+
+    @keyframes popIn {
+      0% { opacity:
