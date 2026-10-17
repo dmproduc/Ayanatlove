@@ -2,56 +2,62 @@
 <html lang="kk">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Саған арналған шақырту ❤️</title>
-  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@600;700&family=Nunito:wght@600;800&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Саған арналған құпия тапсырма ✨</title>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   <style>
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      user-select: none;
     }
 
     body {
+      background: radial-gradient(circle at center, #ffe4e6 0%, #fbcfe8 50%, #f472b6 100%);
       min-height: 100vh;
-      min-height: 100dvh;
       display: flex;
       justify-content: center;
       align-items: center;
-      background: linear-gradient(135deg, #ffd1dc, #fbc2eb);
-      font-family: 'Nunito', 'Comfortaa', sans-serif;
-      padding: 20px 15px;
       overflow-x: hidden;
-      position: relative;
+      perspective: 1000px;
     }
 
-    /* Фондағы жүректер басқа нәрсеге кедергі жасамайды */
-    .heart-bg {
+    .bg-heart {
       position: fixed;
-      color: rgba(255, 77, 109, 0.4);
+      color: rgba(255, 255, 255, 0.4);
       font-size: 20px;
-      animation: floatUp 6s linear infinite;
-      z-index: 1;
-      pointer-events: none !important;
+      pointer-events: none;
+      animation: floatUp 8s linear infinite;
     }
 
     @keyframes floatUp {
-      0% {
-        transform: translateY(105vh) scale(0.6);
-        opacity: 0;
-      }
-      20% { opacity: 0.8; }
-      100% {
-        transform: translateY(-10vh) scale(1.2);
-        opacity: 0;
-      }
+      0% { transform: translateY(105vh) scale(0.8) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(-10vh) scale(1.3) rotate(360deg); opacity: 0; }
     }
 
-    /* Басты карта */
-    .card {
+    .card-container {
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(12px);
+      border-radius: 28px;
+      padding: 30px 24px;
+      width: 90%;
+      max-width: 420px;
+      box-shadow: 0 20px 50px rgba(225, 29, 72, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.8) inset;
+      text-align: center;
       position: relative;
-      z-index: 999;
-      background: #ffffff;
-      padding: 28px 20px;
-      border-radius: 30px;
-      box-shadow: 0 12
+      transition: all 0.4s ease;
+    }
+
+    .step {
+      display: none;
+      animation: fadeIn 0.5s ease-out forwards;
+    }
+
+    .step.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(1
