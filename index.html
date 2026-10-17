@@ -10,7 +10,6 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      -webkit-tap-highlight-color: transparent;
     }
 
     body {
@@ -26,14 +25,14 @@
       position: relative;
     }
 
-    /* Фондағы ұшатын жүректер */
+    /* Фондағы жүректер басқа нәрсеге кедергі жасамайды */
     .heart-bg {
       position: fixed;
       color: rgba(255, 77, 109, 0.4);
       font-size: 20px;
       animation: floatUp 6s linear infinite;
       z-index: 1;
-      pointer-events: none;
+      pointer-events: none !important;
     }
 
     @keyframes floatUp {
@@ -48,165 +47,11 @@
       }
     }
 
-    /* Басты карточка */
+    /* Басты карта */
     .card {
       position: relative;
-      z-index: 10;
-      background: rgba(255, 255, 255, 0.96);
+      z-index: 999;
+      background: #ffffff;
       padding: 28px 20px;
       border-radius: 30px;
-      box-shadow: 0 12px 30px rgba(230, 80, 115, 0.25);
-      width: 100%;
-      max-width: 370px;
-      text-align: center;
-      border: 3px dashed #ff9a9e;
-      margin: auto;
-    }
-
-    .step {
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      gap: 14px;
-    }
-
-    .step.active {
-      display: flex;
-    }
-
-    .icon-box {
-      font-size: 4.5rem;
-      line-height: 1;
-      filter: drop-shadow(0 4px 8px rgba(255, 105, 135, 0.3));
-      animation: bounce 1.8s infinite ease-in-out;
-    }
-
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
-    }
-
-    h2 {
-      font-size: 1.25rem;
-      color: #444;
-      line-height: 1.35;
-      font-weight: 800;
-    }
-
-    p {
-      font-size: 0.95rem;
-      color: #666;
-    }
-
-    .love-text {
-      color: #ff477e;
-      font-size: 1.05rem;
-      font-weight: 800;
-    }
-
-    /* Батырмалар аймағы */
-    .btn-group {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 14px;
-      width: 100%;
-      margin-top: 10px;
-      position: relative;
-      min-height: 60px;
-    }
-
-    button {
-      border: none;
-      outline: none;
-      cursor: pointer;
-      font-family: inherit;
-      font-size: 1rem;
-      font-weight: 800;
-      transition: transform 0.2s ease, background 0.2s ease;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, #ff758c, #ff7eb3);
-      color: #fff;
-      padding: 13px 26px;
-      border-radius: 25px;
-      box-shadow: 0 6px 16px rgba(255, 117, 140, 0.4);
-    }
-
-    .btn-primary:active {
-      transform: scale(0.96);
-    }
-
-    .btn-secondary {
-      background: #f0f0f0;
-      color: #777;
-      padding: 13px 24px;
-      border-radius: 25px;
-      position: relative;
-      transition: all 0.2s ease;
-    }
-
-    /* Таңдау блоктары */
-    .activity-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      width: 100%;
-      margin: 10px 0;
-    }
-
-    .activity-card {
-      background: #fff5f7;
-      border: 2px solid #ffd1dc;
-      border-radius: 18px;
-      padding: 12px 6px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 6px;
-      cursor: pointer;
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: #555;
-    }
-
-    .activity-card span {
-      font-size: 1.8rem;
-    }
-
-    .activity-card.selected {
-      background: #ffe3ea;
-      border-color: #ff758c;
-      color: #ff477e;
-      transform: scale(1.03);
-      box-shadow: 0 4px 10px rgba(255, 117, 140, 0.25);
-    }
-
-    .time-badge {
-      background: #ffe3ea;
-      color: #ff477e;
-      padding: 10px 14px;
-      border-radius: 16px;
-      font-weight: 800;
-      font-size: 0.95rem;
-      border: 1px dashed #ff758c;
-    }
-  </style>
-</head>
-<body>
-
-  <div class="card">
-    
-    <!-- 1-қадам -->
-    <div class="step active" id="step1">
-      <div class="icon-box">🐱❤️</div>
-      <h2>Бүгін кешті бірге өткізейікші?</h2>
-      <p class="love-text">Мен сені қатты жақсы көремін! 💖</p>
-      
-      <div class="btn-group" id="btnContainer">
-        <button class="btn-primary" onclick="goToStep(2)">Иәә 🥰</button>
-        <button class="btn-secondary" id="btnNo" 
-                onmouseover="dodgeButton()" 
-                ontouchstart="dodgeButton(event)">Жоқ 🙈</button>
-      
+      box-shadow: 0 12
