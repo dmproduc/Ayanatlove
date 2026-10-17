@@ -2,31 +2,33 @@
 <html lang="kk">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Саған арналған шақырту ❤️</title>
-  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@600;700&family=Nunito:wght@600;800&display=swap" rel="stylesheet">
   <style>
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      user-select: none;
+      -webkit-tap-highlight-color: transparent;
     }
 
     body {
       min-height: 100vh;
+      min-height: 100dvh;
       display: flex;
       justify-content: center;
       align-items: center;
       background: linear-gradient(135deg, #ffd1dc, #fbc2eb);
-      font-family: 'Nunito', 'Comfortaa', cursive, sans-serif;
-      overflow: hidden;
+      font-family: 'Nunito', 'Comfortaa', sans-serif;
+      padding: 20px 15px;
+      overflow-x: hidden;
       position: relative;
     }
 
-    /* Артқы фондағы ұшатын жүректер */
+    /* Фондағы ұшатын жүректер */
     .heart-bg {
-      position: absolute;
+      position: fixed;
       color: rgba(255, 77, 109, 0.4);
       font-size: 20px;
       animation: floatUp 6s linear infinite;
@@ -36,7 +38,7 @@
 
     @keyframes floatUp {
       0% {
-        transform: translateY(100vh) scale(0.5);
+        transform: translateY(105vh) scale(0.6);
         opacity: 0;
       }
       20% { opacity: 0.8; }
@@ -46,33 +48,165 @@
       }
     }
 
-    /* Басты карта */
+    /* Басты карточка */
     .card {
       position: relative;
       z-index: 10;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(8px);
-      padding: 35px 25px;
-      border-radius: 35px;
-      box-shadow: 0 15px 35px rgba(230, 80, 115, 0.2);
-      width: 90%;
-      max-width: 380px;
+      background: rgba(255, 255, 255, 0.96);
+      padding: 28px 20px;
+      border-radius: 30px;
+      box-shadow: 0 12px 30px rgba(230, 80, 115, 0.25);
+      width: 100%;
+      max-width: 370px;
       text-align: center;
-      border: 4px dashed #ff9a9e;
-      transition: all 0.4s ease;
+      border: 3px dashed #ff9a9e;
+      margin: auto;
     }
 
     .step {
       display: none;
       flex-direction: column;
       align-items: center;
-      gap: 16px;
+      gap: 14px;
     }
 
     .step.active {
       display: flex;
-      animation: popIn 0.5s ease-out forwards;
     }
 
-    @keyframes popIn {
-      0% { opacity:
+    .icon-box {
+      font-size: 4.5rem;
+      line-height: 1;
+      filter: drop-shadow(0 4px 8px rgba(255, 105, 135, 0.3));
+      animation: bounce 1.8s infinite ease-in-out;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      color: #444;
+      line-height: 1.35;
+      font-weight: 800;
+    }
+
+    p {
+      font-size: 0.95rem;
+      color: #666;
+    }
+
+    .love-text {
+      color: #ff477e;
+      font-size: 1.05rem;
+      font-weight: 800;
+    }
+
+    /* Батырмалар аймағы */
+    .btn-group {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 14px;
+      width: 100%;
+      margin-top: 10px;
+      position: relative;
+      min-height: 60px;
+    }
+
+    button {
+      border: none;
+      outline: none;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 800;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      color: #fff;
+      padding: 13px 26px;
+      border-radius: 25px;
+      box-shadow: 0 6px 16px rgba(255, 117, 140, 0.4);
+    }
+
+    .btn-primary:active {
+      transform: scale(0.96);
+    }
+
+    .btn-secondary {
+      background: #f0f0f0;
+      color: #777;
+      padding: 13px 24px;
+      border-radius: 25px;
+      position: relative;
+      transition: all 0.2s ease;
+    }
+
+    /* Таңдау блоктары */
+    .activity-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      width: 100%;
+      margin: 10px 0;
+    }
+
+    .activity-card {
+      background: #fff5f7;
+      border: 2px solid #ffd1dc;
+      border-radius: 18px;
+      padding: 12px 6px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #555;
+    }
+
+    .activity-card span {
+      font-size: 1.8rem;
+    }
+
+    .activity-card.selected {
+      background: #ffe3ea;
+      border-color: #ff758c;
+      color: #ff477e;
+      transform: scale(1.03);
+      box-shadow: 0 4px 10px rgba(255, 117, 140, 0.25);
+    }
+
+    .time-badge {
+      background: #ffe3ea;
+      color: #ff477e;
+      padding: 10px 14px;
+      border-radius: 16px;
+      font-weight: 800;
+      font-size: 0.95rem;
+      border: 1px dashed #ff758c;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    
+    <!-- 1-қадам -->
+    <div class="step active" id="step1">
+      <div class="icon-box">🐱❤️</div>
+      <h2>Бүгін кешті бірге өткізейікші?</h2>
+      <p class="love-text">Мен сені қатты жақсы көремін! 💖</p>
+      
+      <div class="btn-group" id="btnContainer">
+        <button class="btn-primary" onclick="goToStep(2)">Иәә 🥰</button>
+        <button class="btn-secondary" id="btnNo" 
+                onmouseover="dodgeButton()" 
+                ontouchstart="dodgeButton(event)">Жоқ 🙈</button>
+      
